@@ -1,0 +1,235 @@
+:root{
+    --ungu: #6b6ecb;
+    --biru-muda: #cfe5f2;
+    --ungu-muda: #5c5eb3;
+}
+
+.navbar{
+    display: flex;
+    width: 100%;
+    height: 100px;
+    background-color: var(--ungu-muda);
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+}
+
+.logo{
+    width: 300px;
+}
+
+.logo img {
+    width: 100%;
+}
+
+.nav-content{
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-list{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-list li a{
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.nav-list li a:after {
+    background: none repeat scroll 0 0 transparent;
+    margin-top: 5px;
+    content: "";
+    display: block;
+    height: 1px;
+    left: 50%;
+    background: var(--biru-muda);
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+.nav-list li a:hover:after{
+    width: 100%;
+    left: 0;
+}
+
+.nav-list li a:hover{
+    color: var(--biru-muda);
+}
+
+.nav-access{
+    display: flex;
+    align-items: center;
+}
+
+.nav-access div a{
+    text-decoration: none;
+}
+
+.nav-access a svg path{
+    fill: #fff;
+}
+
+.nav-access a:hover, .nav-access a:hover svg path{
+    fill: var(--biru-muda);
+    color: var(--biru-muda);
+}
+
+.after-login{
+    display: flex;
+    gap: 1rem;
+    color: #fff;
+}
+
+.user-info{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.user-info svg path{
+    fill: #fff;
+}
+
+.nav-access div{
+    display: flex;
+    align-items: center;
+}
+
+
+.nav-access div a {
+    display: flex;
+    background-color: #fff;
+    align-items: center;
+    text-decoration: none;
+    gap: .5rem;
+    color: var(--ungu-muda);
+    padding: .5rem;
+    border-radius: 5px;
+    transition: 150ms ease all;
+}
+
+.nav-access div a:hover{
+    background-color: var(--biru-muda);
+    color: var(--ungu);
+}
+
+.hamburger{
+    position: absolute;
+    right: 1rem;
+    cursor: pointer;
+    display: none;
+}
+
+.hamburger span{
+    width: 30px;
+    height: 2px;
+    background-color: #fff;
+    display: block;
+    margin: .4rem auto;
+    transition: 150ms ease-in all;
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+    background-color: var(--ungu-muda);
+}
+.hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+    background-color: var(--ungu-muda);
+}
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+    background-color: var(--ungu-muda);
+}
+
+@media screen and (max-width: 1200px){
+    .navbar{
+        flex-direction: column;
+        height: 150px;
+    }
+    .nav-list{
+        gap: 1rem;
+        justify-content: end;
+    }
+}
+
+@media screen and (max-width: 615px) {
+    .navbar{
+        flex-direction: column;
+        height: 100px;
+    }
+
+    .nav-content{
+        flex-direction: column;
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--biru-muda);
+        top: 0;
+        align-items: center;
+        justify-content: center;
+        left: -100%;
+        transition: 200ms ease-in all;
+    }
+    
+    .nav-list{
+        flex-direction: column;
+        font-size: 2em;
+        left: 1rem;
+    }
+
+    .nav-list li a{
+        color: var(--ungu);
+    }
+
+    .nav-list li a:hover{
+        color: var(--ungu-muda);
+    }
+
+    .nav-list li a:after{
+        background: var(--ungu-muda);
+    }
+
+    .nav-access li a {
+        font-size: 1.5em;
+        color: var(--ungu);
+    }
+
+    .nav-access .after-login {
+        color: var(--ungu);
+        align-items: center;
+    }
+
+    .nav-access .after-login span{
+        display: none;
+    }
+
+    .nav-access .after-login p{
+        font-size: 1.5em;
+    }
+
+    .nav-access li a svg path{
+        fill: var(--ungu);
+    }
+
+    .nav-access li a:hover, .nav-access li a:hover svg path{
+        color: var(--ungu-muda);
+        fill: var(--ungu-muda);
+    }
+
+
+    .hamburger{
+        display: unset;
+    }
+
+    .nav-content.active{
+        left: 0;
+    }
+}
